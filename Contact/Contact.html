@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Dreamcelsius</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        #chatbotIcon {
+            background: #007bff;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        #chatbotWindow {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+        }
+        
+        .chat-header {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        #closeChat {
+            cursor: pointer;
+            font-size: 20px;
+        }
+        
+        #chatMessages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+        
+        #userInput {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+        }
+        
+        #sendMessage {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 15px;
+            max-width: 80%;
+        }
+        
+        .bot-message {
+            background: #f0f0f0;
+            margin-right: auto;
+        }
+        
+        .user-message {
+            background: #007bff;
+            color: white;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Dreamcelsius</h1>
+            </div>
+            <div class="nav-links">
+                <a href="Index.html">Home</a>
+                <a href="Products.html">Products</a>
+                <a href="Contact.html" class="active">Contact</a>
+                <a href="Login.html">Login</a>
+                <a href="AddToCart.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <div id="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>30-38 Jorbert St, Johannesburg 2000</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>075 101 8160</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@dreamcelsius.com</p>
+                </div>
+            </div>
+
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+                <div id="formMessage" class="form-message"></div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <div id="chatbotIcon">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div id="chatbotWindow">
+            <div class="chat-header">
+                <span>Dreamcelsius Assistant</span>
+                <span id="closeChat">&times;</span>
+            </div>
+            <div id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Type your message...">
+                <button id="sendMessage">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Dreamcelsius</h3>
+                <p>Your comfort is our priority</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="Products.html">Products</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Location: 30-38 Jorbert St, Johannesburg 2000</p>
+                <p>Phone: 075 101 8160</p>
+                <p>Email: info@dreamcelsius.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Dreamcelsius. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script>
+const menuIcon = document.querySelector('#menu-icon');
+const navLinks = document.querySelector('.nav-links');
+
+menuIcon.onclick = () => {
+    navLinks.classList.toggle('active');
+}
+
+// Chatbot functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const chatbotIcon = document.getElementById('chatbotIcon');
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const closeChat = document.getElementById('closeChat');
+    const userInput = document.getElementById('userInput');
+    const sendMessage = document.getElementById('sendMessage');
+    const chatMessages = document.getElementById('chatMessages');
+
+    // Initialize chat window as hidden
+    if (chatbotWindow) {
+        chatbotWindow.style.display = 'none';
+    }
+
+    // Add welcome message
+    setTimeout(() => {
+        if (chatMessages) {
+            addMessage("Hi there! 👋 I'm the Dreamcelsius virtual assistant. How can I help you with your temperature control needs today?");
+        }
+    }, 1000);
+
+    // Toggle chat window
+    if (chatbotIcon) {
+        chatbotIcon.addEventListener('click', () => {
+            chatbotWindow.style.display = chatbotWindow.style.display === 'none' ? 'flex' : 'none';
+            if (chatbotWindow.style.display === 'flex') {
+                userInput.focus();
+            }
+        });
+    }
+
+    // Close chat window
+    if (closeChat) {
+        closeChat.addEventListener('click', () => {
+            chatbotWindow.style.display = 'none';
+        });
+    }
+
+    // Send message function
+    function sendUserMessage() {
+        const message = userInput.value.trim();
+        if (message) {
+            // Add user message
+            addMessage(message, 'user-message');
+            
+            // Get bot response
+            const response = getBotResponse(message);
+            
+            // Add bot response with a small delay
+            setTimeout(() => {
+                addMessage(response, 'bot-message');
+            }, 500);
+
+            userInput.value = '';
+        }
+    }
+
+    // Add message to chat
+    function addMessage(text, className) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', className);
+        messageDiv.textContent = text;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Get bot response based on user input
+    function getBotResponse(message) {
+        message = message.toLowerCase();
+        
+        // Simple response logic
+        if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
+            return "Hello! How can I help you with your temperature control solutions today?";
+        } else if (message.includes('products') || message.includes('services')) {
+            return "We offer a wide range of temperature control solutions including smart thermostats, climate control systems, and energy-efficient HVAC solutions. Check out our Products page for more details!";
+        } else if (message.includes('contact') || message.includes('reach') || message.includes('support')) {
+            return "You can visit us at 30-38 Jorbert St, Johannesburg 2000, call us at 075 101 8160, or email us at support@dreamcelsius.com. We're here to help!";
+        } else if (message.includes('warranty') || message.includes('guarantee')) {
+            return "All our products come with a standard 2-year warranty. We also offer extended warranty options for additional peace of mind.";
+        } else if (message.includes('installation') || message.includes('setup')) {
+            return "We provide professional installation services for all our climate control systems. Our certified technicians ensure proper setup and optimal performance.";
+        } else if (message.includes('price') || message.includes('cost') || message.includes('quote')) {
+            return "Prices vary based on the product and your specific needs. Please visit our Products page for pricing details or contact our sales team for a custom quote.";
+        } else if (message.includes('thank')) {
+            return "You're welcome! Let us know if you need any other assistance with your temperature control needs!";
+        } else {
+            return "I can help you with information about our products, services, warranty, installation, pricing, or connect you with our support team. What would you like to know?";
+        }
+    }
+
+    // Send message on button click
+    if (sendMessage) {
+        sendMessage.addEventListener('click', sendUserMessage);
+    }
+
+    // Send message on Enter key
+    if (userInput) {
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendUserMessage();
+            }
+        });
+    }
+
+    // Contact Form Handling
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    const submitBtn = contactForm.querySelector('.submit-btn');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Show loading state
+            submitBtn.classList.add('loading');
+            submitBtn.textContent = 'Sending...';
+            
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Show success message
+                    formMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                    formMessage.className = 'form-message success';
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Something went wrong');
+                }
+            } catch (error) {
+                // Show error message
+                formMessage.textContent = 'Sorry, there was an error sending your message. Please try again.';
+                formMessage.className = 'form-message error';
+            } finally {
+                // Reset button state
+                submitBtn.classList.remove('loading');
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>
