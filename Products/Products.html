@@ -10,10 +10,10 @@
   <!-- Header Section -->
  <header class="sticky-header">
   <div class="logo">
-      <img src="Logo.webp" alt="Company Logo">
+      <a href="index.html"><img src="Logo.webp" alt="Company Logo"></a>
     </div>
   <section class="welcome">
-      <h1>WELCOME TO OUR STORE</h1>
+      <h1 class="glow-text">WELCOME TO OUR STORE</h1>
       <p>Browse our collection of products</p>
     </section>
   <div class="header-content">
@@ -23,9 +23,11 @@
     </div>
     <div class="header-actions">
       <button class="cart-btn">Cart 🛒</button><span id="cart-count">0</span>
-	  <button class="login-btn">Login/Signup</button>
+	  <a href="Login.html"><button class="login-btn">Login/Signup</button></a>
+	 <script src="scripts.js"></script>
 	<div class="header-actions">
-      <button id="dark-mode-toggle">🌙 Dark Mode</button>
+      <button id="dark-mode-toggle">🌙</button>
+	  <script src="scriptDark.js"></script>
     </div>
   </div>
 </header>
@@ -39,8 +41,12 @@
      <button class="cta-btn">Learn More</button>
     </div>
   </section>
+  
+
+
   <!-- Main Section -->
   <main>
+
 
     <section class="categories">
       <h2>Categories</h2>
@@ -61,7 +67,9 @@
           <img src="Orange.png" alt="Product Image">
           <p>Navel Orange x 1 Carton Box (Min. Order)</p>
 		  <h3>R 285.00</h3>
+		  
           <button class="add-to-cart">Add to Cart</button>
+		  <button class="add-to-wishlist">♡ Wishlist
         </div>
 		
 		<div class="product-card">
@@ -122,15 +130,17 @@
       </div>
       <!-- Pagination -->
       <div class="pagination">
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
+        <a href="index.html">1</a>
+        <a href="products_page2.html">2</a>
+        <a href="products_page3.html">3</a>
+        <a href="products_page4.html">4</a>
         <a href="#">»</a>
       </div>
     </section>
   </main>
   
+<button id="scrollToTopBtn" class="scroll-to-top" data-tooltip="Go to top">↑</button>
+
   <!-- footer Section -->
   <footer>
   <div class="footer-container">
@@ -167,7 +177,12 @@
   <p class="footer-note">© 2025 DreamCelcius. All rights reserved.</p>
 </footer>
 
-  <script src="script.js"></script>
+
+<script src="wishlist_btn.js"></script>
+<script src="products.js"></script>
+<script src="zoom.js"></script>
+<script src="script.js"></script>
+<script src="signup.js"></script>
 </body>
 
 </html>
